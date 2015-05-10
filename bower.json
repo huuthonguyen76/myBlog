@@ -1,0 +1,29 @@
+{
+  "name": "Basic progamming exercises",
+  "description": "Playing around exercises with javascript",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AHSR0x",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular-ui-router": "~0.2.13",
+    "angular": "~1.2.27",
+    "angular-bootstrap": "~0.12.0",
+    "angular-mocks":  "~1.3.5"
+  },
+  "authors": [
+    "huu tho nguyen <wolflonely76@yahoo.com>"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests",
+    "./bower_components"
+  ],
+  "resolutions": {
+    "angular": "~1.2.27"
+  }
+}
