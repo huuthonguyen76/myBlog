@@ -18,4 +18,14 @@
       }
     });
   });
+
+  gulp.watch(['app/assets/less/*.less'], function(event) {
+    exec('lessc app/assets/less/main.less > app/assets/css/main.css', function (err, stdout, stderr) {
+      if (err) {
+        console.log(stderr);
+      } else {
+        console.log('File : ' + event.path + ' - ' + event.type);
+      }
+    });
+  });
 })();
