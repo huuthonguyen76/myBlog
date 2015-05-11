@@ -37,7 +37,7 @@
 	exports.listPost = function(req, res) {
 		async.waterfall([
 			function(next) {
-				postModel.find().populate('author').sort('-_id').exec(next);
+				postModel.find().populate('author').sort('-_id').limit(6).exec(next);
 			}
 		], function(err, posts) {
 			if (err) {
