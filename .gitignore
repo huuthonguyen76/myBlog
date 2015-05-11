@@ -1,0 +1,3 @@
+bower_components/*
+client/tests/*
+server/node_modules/*
