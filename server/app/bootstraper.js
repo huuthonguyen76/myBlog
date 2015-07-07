@@ -7,8 +7,9 @@
   var authHelper      = require('./helpers/auth.helper.js');
 
   // Include controller
-  var userController  = require('./modules/user/controllers/user.controller.js');
-  var postController  = require('./modules/post/controllers/post.controller.js');
+  var userController      = require('./modules/user/controllers/user.controller.js');
+  var postController      = require('./modules/post/controllers/post.controller.js');
+  var categoryController  = require('./modules/category/controllers/category.controller.js');
 
   // Import requirement for server
   var bodyParser            = require('body-parser');
@@ -33,8 +34,13 @@
   });
 
   // Class member router
+  app.get('/test', function(req, res) {
+    res.send('hello');
+  });
   app.post('/user/login', userController.login);
   app.post('/user/register', userController.register);
   app.post('/post/addPost', authHelper.loginRequire, postController.addPost);
   app.post('/post/listPost', postController.listPost);
+  app.post('/category/addCategory', categoryController.addCategory);
+  app.post('/category/listCategory', categoryController.listCategory);
 }).call(this);

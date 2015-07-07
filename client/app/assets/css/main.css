@@ -1,52 +1,115 @@
+.no-margin {
+  margin: 0 0 0 0; }
+
+#admin-wrapper a.general-button {
+  color: #9D9D9D; }
+  #admin-wrapper a.general-button:hover {
+    color: #333; }
+#admin-wrapper #header-wrapper {
+  height: 60px;
+  background-color: #23b7e5; }
+#admin-wrapper #sidebar-wrapper {
+  width: 60px;
+  height: 150px;
+  border-right: 1px solid #cfdbe2;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  float: left; }
+#admin-wrapper #main-wrapper {
+  margin-left: 60px; }
+  #admin-wrapper #main-wrapper #main-title-wrapper {
+    height: 80px;
+    border-bottom: 1px solid #cfdbe2; }
+  #admin-wrapper #main-wrapper #main-content-wrapper {
+    padding: 20px; }
+    #admin-wrapper #main-wrapper #main-content-wrapper #category-management-wrapper .category-item {
+      border: 1px solid #e4eaec;
+      text-align: center;
+      padding: 20px;
+      height: 100px;
+      overflow: hidden;
+      margin: 15px 20px 15px 35px; }
+      #admin-wrapper #main-wrapper #main-content-wrapper #category-management-wrapper .category-item .total-post-wrapper {
+        border-top: 1px solid #e4eaec; }
+  #admin-wrapper #main-wrapper .avatar-upload {
+    font-size: 60px;
+    color: #cfdbe2; }
+    #admin-wrapper #main-wrapper .avatar-upload label {
+      border: 1px dashed #cfdbe2;
+      padding: 20px; }
+  #admin-wrapper #main-wrapper #widget-list-categories .header {
+    border-bottom: 1px solid #e4eaec;
+    padding-bottom: 20px; }
+  #admin-wrapper #main-wrapper #widget-list-categories .chosen {
+    position: relative; }
+    #admin-wrapper #main-wrapper #widget-list-categories .chosen::after {
+      content: "X";
+      font-size: 10px;
+      position: absolute;
+      bottom: 0px; }
+  #admin-wrapper #main-wrapper #widget-list-categories .category-item {
+    border: 1px solid #e4eaec;
+    padding: 10px;
+    margin: 10px 10px 0 5px;
+    float: left; }
+    #admin-wrapper #main-wrapper #widget-list-categories .category-item.chosen {
+      background-color: #27c24c;
+      color: white; }
+    #admin-wrapper #main-wrapper #widget-list-categories .category-item:hover {
+      background-color: #27c24c;
+      color: white; }
+#admin-wrapper .component-border {
+  border: 1px solid #cfdbe2;
+  border-top-width: 3px;
+  padding: 20px; }
+
 .img-center {
-  margin: 0 auto;
-}
+  margin: 0 auto; }
+
 a {
-  color: #9D9D9D;
-}
-a:hover {
-  text-decoration: none;
-  cursor: pointer;
-  color: #e15d5d;
-}
+  color: #9D9D9D; }
+  a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #e15d5d; }
+
 li.category {
   border-top: 1px solid #ededed;
-  padding: 5px 5px;
-}
-li.category:first-child {
-  border-top: none;
-}
+  padding: 5px 5px; }
+  li.category:first-child {
+    border-top: none; }
+
 .main-wrapper {
-  margin-top: 60px;
-}
+  margin-top: 60px; }
+
 .sidebar-wrapper {
-  margin-top: -10px;
-}
-.sidebar-wrapper h4 {
-  border: 1px solid #979797;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 400;
-  color: #2f2f2f;
-  padding: 15px;
-  position: relative;
-}
-.sidebar-wrapper h4:after {
-  content: '+';
-  position: absolute;
-  right: 15px;
-}
-.sidebar-wrapper .latest-posts-wrapper li {
-  margin-top: 15px;
-}
-.sidebar-wrapper .latest-posts-wrapper .post-thumbnail {
-  width: 60px;
-  height: 60px;
-  margin-right: 15px;
-  color: red;
-}
-.sidebar-wrapper .latest-posts-wrapper .date-post {
-  font-size: 10px;
-  font-style: italic;
-  color: #9e9e9e;
-}
+  margin-top: -10px; }
+  .sidebar-wrapper h4 {
+    border: 1px solid #979797;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+    color: #2f2f2f;
+    padding: 15px;
+    position: relative; }
+    .sidebar-wrapper h4:after {
+      content: "+";
+      position: absolute;
+      right: 15px; }
+  .sidebar-wrapper .latest-posts-wrapper li {
+    margin-top: 15px; }
+  .sidebar-wrapper .latest-posts-wrapper .post-thumbnail {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    color: redg; }
+  .sidebar-wrapper .latest-posts-wrapper .date-post {
+    font-size: 10px;
+    font-style: italic;
+    color: #9e9e9e; }
+
+.margin-top-15 {
+  margin-top: 15px; }
+
+/*# sourceMappingURL=main.css.map */

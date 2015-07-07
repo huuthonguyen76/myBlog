@@ -12,12 +12,12 @@
        * @param: {string} method for request
        * @param: {object} data for post request
        * @param: {object} data for get request
-       * 
+       *
        * @return: {array|object}  data response as promise
        *
        */
-      var request = function(url, method, data, params) {     
-        var host = 'http://localhost:5440';
+      var request = function(url, method, data, params) {
+        var host = 'http://myhost.com:5440';
 
         // Checking params
         url    = (typeof url !== 'undefined') ? url : '';
@@ -28,11 +28,11 @@
         var deferred = $q.defer();
         var promise = $http({
           method: method,
-          url: url ? host + '/' + url : host, 
+          url: url ? host + '/' + url : host,
           params: params, // for get
           data: data // for post
         });
-        
+
         // Resolve data
         promise
           .success(function(response) {

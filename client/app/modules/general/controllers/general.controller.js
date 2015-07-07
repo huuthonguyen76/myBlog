@@ -16,5 +16,13 @@
         $scope.posts = result;
       });
     }])
+
+    .controller('generalDetailCtrl', ['$scope', 'myApiCall', '$stateParams', function($scope, myApiCall, $stateParams) {      
+      
+    }])
+
+    .controller('generalContactCtrl', ['$scope', 'myApiCall', '$stateParams', function($scope, myApiCall, $stateParams) {      
+      
+    }])
   	;
 })();

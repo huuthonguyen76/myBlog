@@ -1,0 +1,54 @@
+<div id="main-content-wrapper">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="component-border">
+        <div>
+          Header
+        </div>
+        <div class="margin-top-15">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="lg">Title</label>
+              <div class="col-sm-4">
+                <input class="form-control" type="text" id="lg">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="lg">Avatar</label>
+              <div class="col-sm-4 avatar-upload" ng-click="upload()">
+                <label for="avatar" class="glyphicon glyphicon-plus" aria-hidden="true">
+                  <input type="file" id="avatar" style="display: none">
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="sm">Content</label>
+              <div class="col-sm-10">
+                <text-angular ng-model="htmlVariable"></text-angular>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-10 col-sm-offset-2">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div id="widget-list-categories" class="component-border">
+        <div class="header">
+          List Category
+        </div>
+        <div class="row" style="padding-top: 20px">
+          <div class="col-md-12">
+            <post-category>ABC</post-category>
+            <post-category>ABC</post-category>
+            <post-category>ABC</post-category>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
