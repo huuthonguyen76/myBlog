@@ -495,14 +495,28 @@ m._name=o.name?o.name:"textAngularEditor"+B;var C=function(a,c,d){b(function(){v
 
   	}])
 
-    .controller('adminAddPostCtrl', ['$scope', '$timeout', function($scope, $timeout) {
-
+    .controller('adminAddPostCtrl', ['$scope', '$timeout', 'myApiCall', function($scope, $timeout, myApiCall) {
+      $scope.post = {
+        title: '',
+        categories: [],
+        content: '',
+        avatar: ''
+      }
+      $scope.categories = [];
+      myApiCall.request('category/listCategory', 'post')
+        .then(function(categories) {
+          $scope.categories = categories;
+        });
+      $scope.$on('category-chosen', function(event, mass) {
+        if ($scope.post.categories.indexOf(mass) < 0) {
+          $scope.post.categories.push(mass);
+        } else {
+          $scope.post.categories.splice($scope.post.categories.indexOf(mass), 1);
+        }
+      });
   	}])
 
     .controller('adminCategoryManagementCtrl', ['$scope', '$timeout', 'myApiCall', '$http', function($scope, $timeout, myApiCall, $http) {
-      $http.jsonp('http://myhost.com/coding/test.php?callback=JSON_CALLBACK').success(function(data) {
-        console.log(data);
-      });
       $scope.category = {
         title: ''
       };
@@ -515,7 +529,7 @@ m._name=o.name?o.name:"textAngularEditor"+B;var C=function(a,c,d){b(function(){v
         myApiCall.request('category/addCategory', 'post', {
           title: $scope.category.title
         }).then(function(result) {
-          $scope.categories.shift(angular.copy($scope.category));
+          $scope.categories.unshift(angular.copy($scope.category));
           $scope.category.title = '';
         });
       }
@@ -528,7 +542,6 @@ m._name=o.name?o.name:"textAngularEditor"+B;var C=function(a,c,d){b(function(){v
   'use strict';
 
   angular.module('admin-post.directive', [])
-
     .directive('postCategory', [function() {
       return {
         restrict: 'E',
@@ -540,6 +553,7 @@ m._name=o.name?o.name:"textAngularEditor"+B;var C=function(a,c,d){b(function(){v
         link: function(scope, element, attrs) {
           scope.isChosen = false;
           element.bind('click', function() {
+            scope.$emit('category-chosen', scope.info._id);
             scope.isChosen = ! scope.isChosen;
             scope.$apply();
           });
@@ -547,7 +561,36 @@ m._name=o.name?o.name:"textAngularEditor"+B;var C=function(a,c,d){b(function(){v
       }
     }])
 
-    .directive('categoryItemManagement', [function() {
+    .directive('group', [function() {
+      return {
+        restrict: 'E',
+        transclude: true,
+        scope: {
+          info: '='
+        },
+        template: '<p id="abc" class="category-item">dasd</p><p id="abc" class="category-item">dasd</p>',
+        link: function(scope, element, attrs) {
+          var k = false;
+          var rotate = 0;
+          element.bind('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if ( ! k) {
+              element.find('p').css('transform', 'translate(20px, 20px)');
+              console.log('false');
+              k = !k;
+            } else {
+              rotate += 90;
+              element.css('transform', 'rotate(' + rotate + 'deg)');
+              element.find('p').css('transform', 'rotate(' + -rotate + 'deg)');
+              console.log('true');
+            }
+          });
+        }
+      }
+    }])
+
+    .directive('categoryItemManagement', ['$compile', function() {
       return {
         restrict: 'E',
         scope: {
@@ -555,7 +598,26 @@ m._name=o.name?o.name:"textAngularEditor"+B;var C=function(a,c,d){b(function(){v
         },
         templateUrl: 'app/modules/admin/views/blocks/categoryItemManagement.html',
         link: function(scope, element, attrs) {
+          scope.isFocus = false;
 
+          element.bind('mousedown', function() {
+            if ( ! scope.isFocus) {
+              scope.isFocus = true;
+              scope.$apply();
+            }
+          });
+          element.bind('focus', function() {
+            alert('true');
+          })
+          element.bind('keypress', function(event) {
+            if (event.which == 13) {
+              scope.isFocus = false;
+            } else {
+
+            }
+            console.log(event.which);
+            scope.$apply();
+          });
         }
       }
     }])

@@ -11,14 +11,28 @@
 
   	}])
 
-    .controller('adminAddPostCtrl', ['$scope', '$timeout', function($scope, $timeout) {
-
+    .controller('adminAddPostCtrl', ['$scope', '$timeout', 'myApiCall', function($scope, $timeout, myApiCall) {
+      $scope.post = {
+        title: '',
+        categories: [],
+        content: '',
+        avatar: ''
+      }
+      $scope.categories = [];
+      myApiCall.request('category/listCategory', 'post')
+        .then(function(categories) {
+          $scope.categories = categories;
+        });
+      $scope.$on('category-chosen', function(event, mass) {
+        if ($scope.post.categories.indexOf(mass) < 0) {
+          $scope.post.categories.push(mass);
+        } else {
+          $scope.post.categories.splice($scope.post.categories.indexOf(mass), 1);
+        }
+      });
   	}])
 
     .controller('adminCategoryManagementCtrl', ['$scope', '$timeout', 'myApiCall', '$http', function($scope, $timeout, myApiCall, $http) {
-      $http.jsonp('http://myhost.com/coding/test.php?callback=JSON_CALLBACK').success(function(data) {
-        console.log(data);
-      });
       $scope.category = {
         title: ''
       };
@@ -31,7 +45,7 @@
         myApiCall.request('category/addCategory', 'post', {
           title: $scope.category.title
         }).then(function(result) {
-          $scope.categories.shift(angular.copy($scope.category));
+          $scope.categories.unshift(angular.copy($scope.category));
           $scope.category.title = '';
         });
       }

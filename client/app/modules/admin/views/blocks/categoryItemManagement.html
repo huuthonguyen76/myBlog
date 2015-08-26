@@ -1,4 +1,5 @@
 <div class="col-md-3 category-item">
-  {{info.title}}
-  <div class="total-post-wrapper">{{info.title}}</div>
+  <p data-ng-bind="info.title" data-ng-show=" ! isFocus"></p>
+  <input type="text" data-ng-model="info.title" data-ng-show="isFocus" ng-blur="abc()">
+  <div class="total-post-wrapper" data-ng-bind="info.title"></div>
 </div>
